@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>zydo</title>
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/11573892?v=4" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0b0c0e;
+      --paper: #ece8e1;
+      /* warm type */
+      --mist: #9a958c;
+      /* warm gray status text */
+      --mint: #6ee7b7;
+      /* the one cool accent — doubles as the status LED */
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.75rem;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* The wordmark. The "o" is replaced by .dot, so the accent is part
+       of the name rather than applied decoration. */
+    .wordmark {
+      margin: 0;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-weight: 500;
+      font-size: clamp(3.5rem, 17vw, 9rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      text-transform: lowercase;
+      color: var(--paper);
+    }
+
+    /* Stands in for the "o": sits on the baseline like a letter, glows
+       and breathes like a status LED. */
+    .dot {
+      display: inline-block;
+      vertical-align: baseline;
+      width: 0.56em;
+      height: 0.56em;
+      margin-left: 0.03em;
+      border-radius: 50%;
+      background: var(--mint);
+      box-shadow: 0 0 0.9em -0.1em var(--mint);
+      animation: breathe 2.8s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+
+      0%,
+      100% {
+        opacity: 0.45;
+        box-shadow: 0 0 0.35em -0.12em var(--mint);
+      }
+
+      50% {
+        opacity: 1;
+        box-shadow: 0 0 1.1em -0.05em var(--mint);
+      }
+    }
+
+    .status {
+      margin: 0;
+      font-size: clamp(0.8rem, 2vw, 0.95rem);
+      letter-spacing: 0.22em;
+      text-transform: lowercase;
+      color: var(--mist);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .dot {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1 class="wordmark" aria-label="zydo">zyd<span class="dot" aria-hidden="true"></span></h1>
+    <p class="status">coming soon</p>
+  </main>
+</body>
+
+</html>
